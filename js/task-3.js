@@ -1,29 +1,8 @@
-'use strict';
-
-class StringBuilder {
-  #value;
-  constructor(initialValue) {
-    this.#value = initialValue;
-  }
-  getValue() {
-    return this.#value;
-  }
-  padEnd(str) {
-    this.#value = this.#value + str;
-  }
-  padStart(str) {
-    this.#value = str + this.#value;
-  }
-  padBoth(str) {
-    this.#value = str + this.#value + str;
-  }
-}
-
-const builder = new StringBuilder('.');
-console.log(builder.getValue()); // "."
-builder.padStart('^');
-console.log(builder.getValue()); // "^."
-builder.padEnd('^');
-console.log(builder.getValue()); // "^.^"
-builder.padBoth('=');
-console.log(builder.getValue()); // "=^.^="
+const hayInput = document.getElementById('name-input');
+const inputName = document.getElementById('name-output');
+const onHayInput = event => {
+  const inputEl = event.currentTarget;
+  console.log(inputEl.value);
+  inputName.textContent = inputEl.value.trim() || 'Anonymous';
+};
+hayInput.addEventListener('input', onHayInput);
